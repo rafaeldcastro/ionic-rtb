@@ -1,5 +1,7 @@
 {
   "name": "ionic-rtb",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
