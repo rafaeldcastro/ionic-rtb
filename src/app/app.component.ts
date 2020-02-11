@@ -10,6 +10,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
   `
   <ion-app>
     <ion-router-outlet></ion-router-outlet>
+    <app-loading></app-loading>
   </ion-app>
   `
 })

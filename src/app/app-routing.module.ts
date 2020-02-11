@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { PreloadAllModules, RouterModule, Routes, UrlSerializer } from '@angular/router';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { appRoutesNames } from './app-routes-names';
 
 const appRoutes: Routes = [
@@ -28,12 +28,7 @@ const appRoutes: Routes = [
       {
         preloadingStrategy: PreloadAllModules,
         scrollPositionRestoration: 'enabled',
-        urlUpdateStrategy: 'eager',
-        malformedUriErrorHandler:
-          (error: URIError, urlSerializer: UrlSerializer, url: string) => {
-            console.error(url);
-            return urlSerializer.parse(`/${appRoutesNames.SPLASH.route}`);
-          }
+        urlUpdateStrategy: 'eager'
       })
   ],
   exports: [
