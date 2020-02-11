@@ -1,107 +1,79 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { JwtHelperService } from '@auth0/angular-jwt';
+import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { environment } from '../../../../environments/environment';
+import { JwtHelperService } from "@auth0/angular-jwt";
 
-/** SERVICES */
-import { EventEmitterService } from '../emitter/event-emitter.service';
+import { Platform } from '@ionic/angular';
+import { Storage } from '@ionic/storage';
+import { BehaviorSubject, Observable, from, of } from 'rxjs';
+import { take, map, switchMap } from 'rxjs/operators';
 
-@Injectable({ providedIn: 'root' })
+import { environment } from './../../../../environments/environment';
+const helper = new JwtHelperService();
+const TOKEN_KEY = 'jwt-token';
+
+@Injectable({
+  providedIn: 'root'
+})
 export class AuthService {
 
-  private static token;
+  public user: Observable<any>;
+  private userData = new BehaviorSubject(null);
 
   constructor(
-    private jwtHelper: JwtHelperService,
+    private storage: Storage,
     private http: HttpClient,
-    private router: Router,
-  ) {
-    this.loadStorage();
+    private platform: Platform,
+    private router: Router) {
+
+    this.loadStoredToken();
   }
 
-  static getToken(): string {
-    return this.token;
-  }
+  loadStoredToken() {
+    let platformObs = from(this.platform.ready());
 
-  private loadStorage() {
-
-    if (localStorage.getItem('acess-token')) {
-      AuthService.token = localStorage.getItem('acess-token');
-    } else {
-      AuthService.token = '';
-      EventEmitterService.get("user.clear-storage").emit();
-    }
-  }
-
-  private getHeaders(): any {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + AuthService.token
+    this.user = platformObs.pipe(
+      switchMap(() => {
+        return from(this.storage.get(TOKEN_KEY));
+      }),
+      map(token => {
+        if (token) {
+          let decoded = helper.decodeToken(token);
+          this.userData.next(decoded);
+          return true;
+        } else {
+          return null;
+        }
       })
-    }
-    return httpOptions;
+    );
   }
 
-  isAuthenticated() {
-    return true;
-    // return !this.jwtHelper.isTokenExpired(AuthService.token);
+  signInUser(user) {
+
+    const url = `${environment.API_URL}/login`;
+
+    return this.http.post<any>(url, user).pipe(
+      take(1),
+      map(res => res['token']),
+      switchMap(token => {
+        let decoded = helper.decodeToken(token);
+        this.userData.next(decoded);
+
+        let storageObs = from(this.storage.set(TOKEN_KEY, token));
+        return storageObs;
+      })
+    );
+  }
+
+  getUser() {
+    return this.userData.getValue();
   }
 
   signOut() {
-
-    EventEmitterService.get("user.clear-storage").emit();
-    AuthService.token = '';
-    localStorage.removeItem('acess-token');
-    this.router.navigate(['/login']);
-  }
-
-  setAuthOnStorage(token, user) {
-
-    localStorage.setItem('token', token);
-    AuthService.token = token;
-    EventEmitterService.get("user.set").emit(user);
-  }
-
-  signIn(user) {
-
-    const url = `${environment.URL_API}/usuario/login`;
-
-    return this.http.post(url, user).pipe(
-      map((data: any) => {
-        this.setAuthOnStorage(data.token, data.user);
-        return true;
-      })
-    );
-  }
-
-  recoverPassword(email: string) {
-
-    const url = `${environment.URL_API}/recover_password`;
-
-    return this.http.post(url, email).pipe(
-      map(() => {
-        return true;
-      })
-    );
-  }
-
-  signUp(user): Observable<any> {
-
-    const url = `${environment.URL_API}/usuario/cadastrar`;
-
-    let body = JSON.stringify({
-      'usuario': user
-    })
-
-    return this.http.post(url, body, this.getHeaders()).pipe(
-      map((resp: any) => {
-        return resp.user;
-      })
-    );
+    this.storage.remove(TOKEN_KEY).then(() => {
+      this.router.navigateByUrl('/');
+      this.userData.next(null);
+    });
   }
 
 }
