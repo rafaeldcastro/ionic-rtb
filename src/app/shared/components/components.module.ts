@@ -6,6 +6,11 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 /** COMPONENTS */
+// import { 
+//   BackButtonDirective, 
+//   InteractionDirective 
+// } from './index';
+
 
 @NgModule({
   declarations: [

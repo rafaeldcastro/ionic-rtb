@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { Subscription } from 'rxjs';
 
-import { EventEmitterService } from '../../../services/emitter/event-emitter.service';
+/**SERVICES */
+import { EventEmitterService } from './../../services/emitter/event-emitter.service';
 
 @Component({
   selector: 'app-loading',

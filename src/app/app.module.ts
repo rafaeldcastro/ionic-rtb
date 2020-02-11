@@ -5,6 +5,7 @@ import { RouteReuseStrategy } from '@angular/router';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { JwtModule } from '@auth0/angular-jwt';
 
 /**COMPONENTS */
 import { AppComponent } from './app.component';
@@ -27,13 +28,22 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
   entryComponents: [],
   imports: [
     BrowserModule, 
+    AppRoutingModule,
+    HttpClientModule,
     IonicModule.forRoot(), 
     IonicStorageModule.forRoot({
       name: '__mydb',
       driverOrder: ['indexeddb', 'sqlite', 'websql']
     }),
-    AppRoutingModule,
-    HttpClientModule
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: function tokenGetter() {
+          return localStorage.getItem('access_token');
+        },
+        // whitelistedDomains: ['localhost:3000'],
+        // blacklistedRoutes: ['http://localhost:3000/auth/login']
+      }
+    })
   ],
   providers: [
     StatusBar,
