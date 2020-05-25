@@ -9,4 +9,8 @@ export class SplashPage {
 
   constructor() {}
 
+  goInAppBrowser(){
+    
+  }
+
 }
