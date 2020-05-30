@@ -36,17 +36,10 @@
                 "input": "src/theme/variables.scss"
               },
               {
-                "input": "src/assets/libs/animate.css"
-              },
-              {
                 "input": "src/global.scss"
               }
             ],
-            "scripts": [
-              {
-                "input": "src/assets/libs/jquery-3.4.1.min.js"
-              }
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {
