@@ -1,0 +1,5 @@
+export interface ICanDeactivateGuard {
+
+    ngCanDeactivate();
+
+}
