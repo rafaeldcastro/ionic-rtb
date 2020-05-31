@@ -5,6 +5,8 @@ import { RouterModule } from '@angular/router';
 
 import { LoginPage } from './login.page';
 
+import { ComponentsModule } from '../../shared/components/components.module';
+
 @NgModule({
   declarations: [
     LoginPage
@@ -12,6 +14,7 @@ import { LoginPage } from './login.page';
   imports: [
     CommonModule,
     IonicModule,
+    ComponentsModule,
     RouterModule.forChild([
       {
         path: '',

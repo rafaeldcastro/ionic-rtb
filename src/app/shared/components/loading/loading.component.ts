@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { Subscription } from 'rxjs';
 
+/**NOTIFICATIONS */
+import { LoadingNotifications } from './shared/notifications/loading.notifications';
+
 /**SERVICES */
-import { LoadingNotifications } from '../../_notifications/notification.index';
 import { EventEmitterService } from './../../services/emitter/event-emitter.service';
 
 @Component({

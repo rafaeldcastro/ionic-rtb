@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 /** COMPONENTS */
-
+import { IonFabComponentModule } from './ion-fab/ion-fab.component.module';
 
 @NgModule({
   declarations: [
@@ -16,10 +16,11 @@ import { FormsModule } from '@angular/forms';
     IonicModule,
     RouterModule,
     FormsModule,
-    CommonModule
+    CommonModule,
+    IonFabComponentModule
   ],
   exports: [
-    
+    IonFabComponentModule
   ],
   entryComponents: [
     
