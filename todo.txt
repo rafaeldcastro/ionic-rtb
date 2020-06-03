@@ -7,5 +7,6 @@ Recover
 
 COMPONENT
 ===
-Loading Mini
 Generic Alert
+popover
+toast
