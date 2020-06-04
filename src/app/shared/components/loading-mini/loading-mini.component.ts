@@ -19,7 +19,7 @@ export class LoadingMiniComponent implements AfterViewInit{
   }
   
   processColor(){
-    console.log(this.color);
+    // console.log(this.color);
     if(Array.isArray(this.color)){
       this.loadingColor = this.color;
     } else {

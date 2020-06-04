@@ -9,4 +9,3 @@ COMPONENT
 ===
 Generic Alert
 popover
-toast
