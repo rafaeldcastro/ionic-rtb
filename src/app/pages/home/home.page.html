@@ -12,4 +12,59 @@
         <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will
             be your guide.</p>
     </div>
+
+<!-- 
+    
+    IONIC INFINITE SCROLL 
+
+-->
+
+    <!-- <ion-card *ngFor="let user of users">
+        <ion-item>
+            <ion-avatar slot="start">
+                <img [src]="user.picture.medium" />
+            </ion-avatar>
+
+            <ion-label>
+                <h2>
+                    {{user.name?.first}} {{user.name?.last}}
+                </h2>
+                <p>{{user.email}}</p>
+            </ion-label>
+        </ion-item>
+
+    </ion-card>
+
+    <ion-infinite-scroll threshold="25%" (ionInfinite)="loadMore($event)">
+        <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more..">
+        </ion-infinite-scroll-content>
+    </ion-infinite-scroll> -->
+
+<!-- 
+    
+    IONIC VIRTUAL SCROLL 
+
+-->
+
+
+    <ion-virtual-scroll [items]="users" approxItemHeight="70px" [headerFn]="separateLetter">
+
+        <ion-item-divider *virtualHeader="let header" color="primary">
+            <ion-label>{{header}}</ion-label>
+        </ion-item-divider>
+
+        <ion-item *virtualItem="let item">
+            <ion-avatar slot="start">
+                <img [src]="item.picture.medium" />
+            </ion-avatar>
+
+            <ion-label>
+                <h2>
+                    {{item.name?.first}} {{item.name?.last}}
+                </h2>
+                <p>{{item.email}}</p>
+            </ion-label>
+        </ion-item>
+    </ion-virtual-scroll>
+
 </ion-content>
