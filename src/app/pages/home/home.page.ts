@@ -1,6 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 
+/**MODELS */
+import { IonPopoverOptions } from './../../shared/components/ion-popover/shared/models/ion-popover-options.model';
+
+/**SERVICES */
+import { PopoverService } from './../../shared/components/ion-popover/shared/services/ion-popover.service';
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -13,10 +19,22 @@ export class HomePage {
   maximumPages = 3;
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private popoverService: PopoverService
   ) {
     // this.loadUsers();
     this.loadUsers_VirtualScroll();
+  }
+
+  headerPopoverMenu(event){
+    let options: IonPopoverOptions = new IonPopoverOptions({
+      buttons: [
+        {
+          icon: 'log-out', label: 'Sign Out', notification: ''
+        }
+      ]
+    });
+    this.popoverService.present(event, options);
   }
 
   loadUsers(event?){

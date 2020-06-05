@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { take } from 'rxjs/operators';
 
 import { appRoutesNames } from '../../shared/_routes-names/routes-names.index';
+import { authenticationRoutesNames } from './../authentication-routes-names';
 
 /**SERVICES */
 import { AuthService } from './../../shared/services/_auth/auth.service';
@@ -27,7 +28,7 @@ export class LoginPage {
     private formBuilder: FormBuilder
   ) {
     if (this.authService.currentUserValue) {
-      this.goHome();
+      this.navigateTo('home');
     }
 
     this.loginForm = this.formBuilder.group({
@@ -52,7 +53,7 @@ export class LoginPage {
         .subscribe(
           data => {
             console.log(data)
-            this.goHome();
+            this.navigateTo('home');
           },
           error => {
             this.errorMessage = error;
@@ -61,8 +62,16 @@ export class LoginPage {
     }
   }
 
-  private goHome() {
-    this.navCtrl.navigateRoot(`${appRoutesNames.PAGES.route}`);
+  private navigateTo(page) {
+    let route;
+
+    switch(page){
+      case 'home': this.navCtrl.navigateRoot(appRoutesNames.PAGES.route); return;
+      case 'signup': route = `${appRoutesNames.AUTHENTICATION.route}/${authenticationRoutesNames.SIGN_UP.route}`; break;
+      case 'recover': route = `${appRoutesNames.AUTHENTICATION.route}/${authenticationRoutesNames.RECOVER.route}`; break;
+    }
+
+    this.navCtrl.navigateForward(route);
   }
 
   get errorControl() {

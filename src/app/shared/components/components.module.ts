@@ -8,17 +8,19 @@ import { FormsModule } from '@angular/forms';
 /** COMPONENTS */
 import { IonFabComponentModule } from './ion-fab/ion-fab.component.module';
 import { LoadingMiniComponent } from './loading-mini/loading-mini.component';
+import { IonPopoverComponentModule } from './ion-popover/ion-popover.component.module';
 
 @NgModule({
   declarations: [
-    LoadingMiniComponent
+    LoadingMiniComponent,
   ],
   imports: [
     IonicModule,
     RouterModule,
     FormsModule,
     CommonModule,
-    IonFabComponentModule
+    IonFabComponentModule,
+    IonPopoverComponentModule
   ],
   exports: [
     LoadingMiniComponent,
