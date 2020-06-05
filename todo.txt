@@ -8,4 +8,4 @@ Recover
 COMPONENT
 ===
 Generic Alert
-popover
+tutorial com slider

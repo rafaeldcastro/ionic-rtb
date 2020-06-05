@@ -14,7 +14,7 @@ import { EventEmitterService } from './../../services/emitter/event-emitter.serv
 })
 export class IonPopoverComponent {
 
-  @Input() ionPopoverOptions: IonPopoverOptions = new IonPopoverOptions();
+  @Input() ionPopoverOptions: IonPopoverOptions;
   
   constructor(private popoverController: PopoverController) {}
 

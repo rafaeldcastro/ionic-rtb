@@ -23,14 +23,14 @@ export class HomePage {
     private popoverService: PopoverService
   ) {
     // this.loadUsers();
-    this.loadUsers_VirtualScroll();
+    // this.loadUsers_VirtualScroll();
   }
 
   headerPopoverMenu(event){
     let options: IonPopoverOptions = new IonPopoverOptions({
       buttons: [
         {
-          icon: 'log-out', label: 'Sign Out', notification: ''
+          icon: 'log-out', label: 'Sign Out', notification: '<notification.name>'
         }
       ]
     });
@@ -40,7 +40,7 @@ export class HomePage {
   loadUsers(event?){
     this.http.get(`https://randomuser.me/api/?results=20&page=${this.page}`)
       .subscribe(res => {
-        console.log(res)
+        // console.log(res)
         this.users = this.users.concat(res['results']);
 
         if(event){
@@ -71,7 +71,7 @@ export class HomePage {
           }
           return 0;
         })
-        console.log(this.users)
+        // console.log(this.users)
       })
   }
 

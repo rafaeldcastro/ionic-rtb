@@ -52,7 +52,7 @@ export class LoginPage {
         .pipe(take(1))
         .subscribe(
           data => {
-            console.log(data)
+            // console.log(data);
             this.navigateTo('home');
           },
           error => {

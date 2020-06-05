@@ -14,14 +14,16 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 /**COMPONENTS */
 import { LoadingComponent } from './shared/components/loading/loading.component';
+import { IonPopoverComponent } from './shared/components/ion-popover/ion-popover.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoadingComponent
+    LoadingComponent,
+    IonPopoverComponent
   ],
   entryComponents: [
-
+    IonPopoverComponent
   ],
   imports: [
     BrowserModule,

@@ -4,7 +4,7 @@
         *ngFor="let button of ionPopoverOptions.buttons; let buttonIndex = index;"
         (click)="emitNotification(buttonIndex)">
 
-        <ion-icon name="button.icon" slot="start"></ion-icon>
+        <ion-icon [name]="button.icon" slot="start"></ion-icon>
         <ion-label>{{button.label}}</ion-label>
 
     </ion-item>

@@ -16,7 +16,7 @@ export class PopoverService {
 
         const popover = await this.popoverController.create({
             component: IonPopoverComponent,
-            componentProps: options,
+            componentProps: {ionPopoverOptions: options},
             cssClass: options.customClasses,
             event: anchor,
             translucent: true
