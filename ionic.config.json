@@ -1,7 +1,7 @@
 {
   "name": "ionic-rtb",
   "integrations": {
-    "capacitor": {}
+    "cordova": {}
   },
   "type": "angular"
 }
