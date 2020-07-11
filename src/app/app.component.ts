@@ -6,10 +6,15 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 @Component({
   selector: 'app-root',
-  templateUrl: 'app.component.html',
-  styleUrls: ['app.component.scss']
+  template: `
+  <ion-app>
+    <app-loading></app-loading>  
+    <ion-router-outlet></ion-router-outlet>
+  </ion-app>
+  `
 })
 export class AppComponent {
+
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
@@ -24,4 +29,5 @@ export class AppComponent {
       this.splashScreen.hide();
     });
   }
+  
 }

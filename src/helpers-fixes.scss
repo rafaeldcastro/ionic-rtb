@@ -1,0 +1,95 @@
+/* =========================
+
+    HELPERS & FIXES
+
+=========================*/
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+*:active,
+*:focus {
+    outline: none !important;
+}
+
+mat-form-field {
+    input {
+        padding-bottom: 4px !important;
+    }
+}
+
+/* Change Autocomplete styles in We*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    border: none !important;
+    -webkit-text-fill-color: initial !important;
+    -webkit-box-shadow: none !important;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Divider, Instagram style*/
+
+.list-divider {
+    height: 1px;
+    margin: 5px 0;
+    overflow: hidden;
+    background-color: #e5e5e5;
+}
+
+.divider {
+    display: flex;
+
+    &:before,
+    &:after {
+        content: "";
+        flex: 1;
+    }
+}
+
+.line {
+    align-items: center;
+    margin: 1em -1em;
+    color: #cccccc;
+
+    &:before,
+    &:after {
+        height: 1px;
+        margin: 0 1em;
+    }
+}
+
+.one-line {
+
+    &:before,
+    &:after {
+        background: #cccccc;
+    }
+}
+
+/* MatToast Colorize */
+.error-notification-overlay {
+    color: var(--ion-color-danger-contrast);
+    background-color: var(--ion-color-danger);
+}
+
+.info-notification-overlay {
+    color: var(--ion-color-secondary-contrast);
+    background-color: var(--ion-color-secondary);
+}
+
+.success-notification-overlay {
+    color: var(--ion-color-success-contrast);
+    background-color: var(--ion-color-success);
+}
+
+.warning-notification-overlay {
+    color: var(--ion-color-warning-contrast);
+    background-color: var(--ion-color-warning);
+}

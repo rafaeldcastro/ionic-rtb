@@ -1,0 +1,53 @@
+<ion-content class="gradient-primary">
+
+    <form [formGroup]="form" novalidate (ngSubmit)="onSubmit()" class="d-flex justify-content-center form-container">
+    
+        <mat-card class="align-self-center animate__animated animate__fadeIn">
+    
+            <mat-card-content>
+    
+                <!-- <undraw-forgot-password class="undraw-pic"></undraw-forgot-password> -->
+    
+                <mat-form-field>
+    
+                    <mat-icon matPrefix>email</mat-icon>
+    
+                    <mat-label>Email/Username</mat-label>
+    
+                    <input matInput formControlName="email" type="email">
+    
+                    <mat-error *ngIf="formcontrol.email.errors && formcontrol.email.errors.required">
+                        Email is <strong>required</strong>
+                    </mat-error>
+    
+                    <mat-error *ngIf="formcontrol.email.errors && formcontrol.email.errors.pattern">
+                        Type a <strong>valid</strong> Email
+                    </mat-error>
+                </mat-form-field>
+    
+                <br>
+    
+                <div class="d-flex justify-content-center">
+                    <button [disabled]="form.invalid" mat-raised-button ype="submit"
+                        class="ion-color-danger w-75 rounded-pill">Recover Password</button>
+                </div>
+    
+                <br><br>
+    
+                <div class="d-flex justify-content-center">
+                    <p><a [routerLink]="'/'+ authRoutes.LOGIN.route">Go back to <strong>Login</strong></a></p>
+                </div>
+    
+            </mat-card-content>
+    
+            <mat-card-actions class="card-actions d-flex justify-content-center" *ngIf="false">
+                <button mat-fab color="warn" aria-label="Login with Google"><i class="fab fa-google"></i></button>
+                <button mat-fab color="primary" aria-label="Login with Facebook"><i class="fab fa-facebook-f"></i></button>
+            </mat-card-actions>
+    
+    
+        </mat-card>
+    
+    </form>
+
+</ion-content>

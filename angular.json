@@ -32,18 +32,30 @@
               }
             ],
             "styles": [
-              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               {
                 "input": "src/theme/variables.scss"
               },
               {
-                "input": "src/global.scss"
+                "input": "src/assets/libs/animate-css/animate.min.css"
               },
               {
-                "input": "src/material-theme.scss"
+                "input": "src/assets/libs/bootstrap/bootstrap.min.css"
+              },
+              {
+                "input": "src/global.scss"
               }
             ],
-            "scripts": []
+            "scripts": [
+              {
+                "input": "src/assets/libs/jquery/jquery-3.5.1.slim.min.js"
+              },
+              {
+                "input": "src/assets/libs/bootstrap/popperjs/popper.min.js"
+              },
+              {
+                "input": "src/assets/libs/bootstrap/bootstrap.min.js"
+              }
+            ]
           },
           "configurations": {
             "production": {

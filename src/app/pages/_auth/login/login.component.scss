@@ -1,0 +1,52 @@
+.form-container{
+    height: 100%;
+    
+    mat-card{
+        max-width: 440px;
+        min-width: 320px;
+        width: 80%;
+        
+        mat-card-content{
+            display: flex;
+            flex-direction: column;
+
+            .undraw-pic{
+                margin: 0 auto 20px;
+                min-width: 145px;
+                width: 50%;
+            }
+
+            .mat-form-field{
+
+                mat-icon{
+                    margin-right: 5px;
+                }
+
+                mat-error{
+                    text-align: right;
+                }
+
+            }
+            
+            .form-field-pass{
+                
+                .icon-visibility{
+                    cursor: pointer;
+                }
+
+                .custom-mat-hint{
+                    bottom: -18px;
+                    left: -25px;
+                    position: absolute;
+                    // right: -26px;
+                }
+            }
+
+        }
+        
+        .card-actions button + button {
+            margin-left: 12px;
+        }
+    }
+
+}

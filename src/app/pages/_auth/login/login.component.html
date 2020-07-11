@@ -1,0 +1,75 @@
+<ion-content class="gradient-primary">
+
+    <form [formGroup]="form" novalidate (ngSubmit)="onSubmit()" class="d-flex justify-content-center form-container">
+
+        <mat-card class="align-self-center animate__animated animate__fadeIn">
+
+            <mat-card-content>
+
+                <!-- <undraw-press-play class="undraw-pic"></undraw-press-play> -->
+
+                <mat-form-field>
+
+                    <mat-icon matPrefix>person</mat-icon>
+
+                    <mat-label>Email</mat-label>
+
+                    <input matInput formControlName="email" type="email">
+
+                    <mat-error *ngIf="formcontrol.email.errors" align="end">
+                        Email is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+
+
+                <mat-form-field class="form-field-pass">
+                    <mat-icon matPrefix>lock</mat-icon>
+
+                    <mat-label>Password</mat-label>
+
+                    <input matInput [type]="showHidePass ? 'password' : 'text'" formControlName="password"
+                        autocomplete="off">
+
+                    <mat-icon matSuffix class="icon-visibility" (click)="showHidePass = !showHidePass"
+                        title="Show/Hide password" [attr.aria-label]="'Hide password'"
+                        [attr.aria-pressed]="showHidePass">{{showHidePass ? 'visibility_off' : 'visibility'}}</mat-icon>
+
+                    <small class="custom-mat-hint"><a
+                            [routerLink]="'/'+ authRoutes.RECOVER_PASSWORD.route"><strong>Forgot
+                                password</strong></a></small>
+
+                    <mat-error *ngIf="formcontrol.password.errors">
+                        Password is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+
+                <br>
+
+                <div class="d-flex justify-content-center">
+                    <button [disabled]="form.invalid" mat-raised-button type="submit"
+                        class="ion-color-danger w-75 rounded-pill">Login</button>
+                </div>
+
+                <br>
+                <span class="divider line one-line">OR</span>
+                <br>
+
+                <div class="d-flex justify-content-center">
+                    <p>Don't you have an account? <a [routerLink]="'/'+ authRoutes.SIGNUP.route"><strong>Sign
+                                Up</strong></a></p>
+                </div>
+
+            </mat-card-content>
+
+            <mat-card-actions class="card-actions d-flex justify-content-center" *ngIf="false">
+                <button mat-fab color="warn" aria-label="Login with Google"><i class="fab fa-google"></i></button>
+                <button mat-fab color="primary" aria-label="Login with Facebook"><i
+                        class="fab fa-facebook-f"></i></button>
+            </mat-card-actions>
+
+
+        </mat-card>
+
+    </form>
+
+</ion-content>
