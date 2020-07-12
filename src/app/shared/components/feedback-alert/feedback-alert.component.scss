@@ -1,0 +1,70 @@
+.feedback-alert {
+    background-color: var(--ion-color-medium);
+    border-color: var(--ion-color-medium-tint);
+    color: var(--ion-color-medium-contrast);
+    border-radius: 0;
+    ::ng-deep{
+
+        strong, b{
+            font-weight: 500;
+        }
+    }
+}
+
+.feedback-alert.round{
+    border-radius: .25rem;
+}
+
+.feedback-alert-primary{
+    background-color: var(--ion-color-primary);
+    border-color: var(--ion-color-primary-tint);
+    color: var(--ion-color-primary-contrast);
+}
+
+.feedback-alert-secondary{
+    background-color: var(--ion-color-secondary);
+    border-color: var(--ion-color-secondary-tint);
+    color: var(--ion-color-secondary-contrast);
+}
+
+.feedback-alert-tertiary{
+    background-color: var(--ion-color-tertiary);
+    border-color: var(--ion-color-tertiary-tint);
+    color: var(--ion-color-tertiary-contrast);
+}
+
+.feedback-alert-success{
+    background-color: var(--ion-color-success);
+    border-color: var(--ion-color-success-tint);
+    color: var(--ion-color-success-contrast);
+}
+
+.feedback-alert-warning{
+    background-color: var(--ion-color-warning);
+    border-color: var(--ion-color-warning-tint);
+    color: var(--ion-color-warning-contrast);
+}
+
+.feedback-alert-danger{
+    background-color: var(--ion-color-danger);
+    border-color: var(--ion-color-danger-tint);
+    color: var(--ion-color-dark-contrast);
+}
+
+.feedback-alert-dark{
+    background-color: var(--ion-color-dark);
+    border-color: var(--ion-color-dark-tint);
+    color: var(--ion-color-dark-contrast);
+}
+
+.feedback-alert-medium, .feedback-alert-default{
+    background-color: var(--ion-color-medium);
+    border-color: var(--ion-color-medium-tint);
+    color: var(--ion-color-medium-contrast);
+}
+
+.feedback-alert-light{
+    background-color: var(--ion-color-light);
+    border-color: var(--ion-color-light-tint);
+    color: var(--ion-color-light-contrast);
+}

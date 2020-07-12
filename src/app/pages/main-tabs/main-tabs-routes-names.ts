@@ -1,11 +1,11 @@
-export let mainRoutesNames = {
+export let mainTabsRoutesNames = {
     DASHBOARD: {
         icon: 'dashboard',
         route: 'dashboard',
         label: 'Dashboard'
     },
     CONTACT: {
-        icon: 'email',
+        icon: 'chatbubble-ellipses',
         route: 'contact',
         label: 'Contact'
     }

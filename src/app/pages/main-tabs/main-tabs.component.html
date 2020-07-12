@@ -1,0 +1,17 @@
+<ion-content>
+
+    <ion-tabs>
+        <ion-tab-bar slot="bottom">
+            <ion-tab-button [tab]="mainRoutes.DASHBOARD.route"><!-- tab => route -->
+                <mat-icon>{{mainRoutes.DASHBOARD.icon}}</mat-icon>
+                <ion-label>{{mainRoutes.DASHBOARD.label}}</ion-label>
+            </ion-tab-button>
+
+            <ion-tab-button [tab]="mainRoutes.CONTACT.route">
+                <mat-icon>{{mainRoutes.CONTACT.icon}}</mat-icon>
+                <ion-label>{{mainRoutes.CONTACT.label}}</ion-label>
+            </ion-tab-button>
+        </ion-tab-bar>
+    </ion-tabs>
+
+</ion-content>

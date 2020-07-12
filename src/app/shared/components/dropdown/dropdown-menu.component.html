@@ -1,10 +1,10 @@
 <div class="dropdown-component" *ngIf="options">
     <button mat-icon-button id="dropdown-{{identifier}}" data-toggle="dropdown" aria-haspopup="true"
-        aria-label="{{options.header}}" aria-expanded="false">
+    attr.aria-label={{options.header}} aria-expanded="false">
         <mat-icon>{{options.icon}}</mat-icon>
     </button>
 
-    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-{{identifier}}">
+    <div class="dropdown-menu dropdown-menu-right" attr.aria-labelledby="dropdown-{{identifier}}">
 
         <div *ngIf="options.header" class="dropdown-header">{{options.header}}</div>
         <div *ngIf="options.header" class="dropdown-divider"></div>
