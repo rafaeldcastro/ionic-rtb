@@ -2,13 +2,13 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-main',
-  template: `<ion-router-outlet></ion-router-outlet>`,
+  template: `
+    <ion-router-outlet></ion-router-outlet>
+  `,
 })
-export class MainPagesComponent{
-
+export class MainPagesComponent {
 
   constructor() {
-
   }
 
 }

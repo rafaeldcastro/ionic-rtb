@@ -9,6 +9,7 @@ import { LoadingNotifications } from '@core/components/loading/notifications/loa
 /**SERVICES */
 import { AuthService } from '@shared/services/_auth/auth.service';
 import { EventEmitterService } from '@shared/services/emitter/event-emitter.service';
+import { MatToastService } from '@shared/services/toast/mat-toast.service';
 
 @Component({
   selector: 'app-login-page',
@@ -21,7 +22,8 @@ export class LoginPageComponent extends AuthBaseView {
 
   constructor(
     protected router: Router,
-    protected authService: AuthService
+    protected authService: AuthService,
+    private matToast: MatToastService
   ) {
     super(router, authService);
 
@@ -41,7 +43,8 @@ export class LoginPageComponent extends AuthBaseView {
       .then(resp => {
         this.authService.currentUserValue = resp;
         EventEmitterService.get(LoadingNotifications.DISMISS).emit();
-        this.navigateTo('HOME');
+        this.matToast.success('Logged in');
+        this.navigateTo('DASHBOARD');
       })
       .catch(e => {
         console.log(e);

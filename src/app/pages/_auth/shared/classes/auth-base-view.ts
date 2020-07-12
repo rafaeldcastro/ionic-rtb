@@ -19,7 +19,7 @@ export class AuthBaseView extends CoreBaseView{
 
     protected isAuthenticated() {
         if (this.authService.currentUserValue) {
-            this.navigateTo('HOME');
+            this.navigateTo('DASHBOARD');
         }
     }
 

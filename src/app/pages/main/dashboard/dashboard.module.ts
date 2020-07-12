@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 
 /** MODULES */
@@ -14,6 +15,7 @@ import { DashboardComponent } from './dashboard.component';
   ],
   imports: [
     CommonModule,
+    IonicModule,
     SharedModule,
     RouterModule.forChild([
       {

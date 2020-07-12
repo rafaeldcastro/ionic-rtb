@@ -1,0 +1,23 @@
+.dropdown-component {
+    .dropdown-menu {
+        right: 10px;
+        top: 40px !important;
+
+        .dropdown-item{
+            font-size: 14px;
+            line-height: 25px;
+    
+            .material-icons, i{
+                float: left;
+                font-size: 20px;
+                margin-right: 7px;
+                margin-top: 2px;
+            }
+        }
+    
+        .dropdown-item.active, 
+        .dropdown-item:active {
+            background-color: var(--ion-color-warning)
+        }
+    }
+}

@@ -31,7 +31,7 @@ export class MatToastService {
     });
   }
 
-  warn(message: string) {
+  warning(message: string) {
     this.show(message, {
       duration: 2500,
       panelClass: 'warning-notification-overlay'
@@ -46,6 +46,6 @@ export class MatToastService {
   }
 
   private show(message: string, configuration: MatSnackBarConfig) {
-    this.zone.run(() => this.snackBar.open(message, null, configuration));
+    this.zone.run(() => this.snackBar.open(message, 'X', configuration));
   }
 }

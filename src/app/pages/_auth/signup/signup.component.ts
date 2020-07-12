@@ -53,7 +53,7 @@ export class SignupPageComponent extends AuthBaseView {
       .then(resp => {
         this.authService.currentUserValue = resp;
         EventEmitterService.get(LoadingNotifications.DISMISS).emit();
-        this.navigateTo('HOME');
+        this.navigateTo('DASHBOARD');
       })
       .catch(e => {
         EventEmitterService.get(LoadingNotifications.DISMISS).emit();

@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 
 import { MAIN_ROUTES } from './main-routes';
@@ -15,6 +16,7 @@ import { MainPagesComponent } from './main.component';
   ],
   imports: [
     CommonModule,
+    IonicModule,
     MAIN_ROUTES,
     SharedModule
   ],
